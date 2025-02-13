@@ -5,3 +5,4 @@
 /.vs
 /backend/ImageProcessorApi/.vs/ImageProcessorApi
 /backend/ImageProcessorApi/obj
+/backend/ImageProcessorApi/bin/Debug/net8.0
