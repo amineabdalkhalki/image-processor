@@ -23,7 +23,7 @@ public class ImageStorage : IImageStorage
         };
 
         // Initialize cache with default values
-        _cache.Set(LatestImageKey, string.Empty, cacheOptions);
+        _cache.Set(LatestImageKey, new ImageEvent(), cacheOptions);
         _cache.Set(EventTimestampsKey, new List<DateTime>(), cacheOptions);
     }
 
