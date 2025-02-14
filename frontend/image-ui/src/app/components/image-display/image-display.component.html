@@ -25,7 +25,11 @@
   }
   @else {
     <mat-card-content>
-      <mat-spinner diameter="40"></mat-spinner>
+      @if (error) {
+        <p class="error-message">⚠️ Error loading image data. Please try again.</p>
+      } @else {
+        <mat-spinner diameter="40"></mat-spinner>
+      }
     </mat-card-content>
   }
 </mat-card>
