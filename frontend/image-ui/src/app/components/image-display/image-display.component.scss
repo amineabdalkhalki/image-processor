@@ -1,0 +1,15 @@
+mat-card {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+
+  img {
+    max-height: 400px;
+    object-fit: contain;
+  }
+
+  mat-card-content {
+    padding: 1rem 0;
+    text-align: center;
+  }
+}

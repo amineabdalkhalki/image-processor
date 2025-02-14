@@ -1,0 +1,17 @@
+@if (imageData$ | async; as data) {
+  <mat-card>
+    @if (data.image) {
+      <img mat-card-image [src]="data.image.imageUrl" alt="Latest image">
+      <mat-card-content>
+        <p>{{ data.image.description }}</p>
+        <p>Received at: {{ data.image.receivedAt | date:'medium' }}</p>
+        <p>Events in last hour: {{ data.lastHourCount }}</p>
+      </mat-card-content>
+    }
+    @else {
+      <mat-card-content>
+        <p>No image available</p>
+      </mat-card-content>
+    }
+  </mat-card>
+}
