@@ -4,6 +4,15 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add CORS services
+builder.Services.AddCors(options => {
+    options.AddPolicy("AngularDev", policy => {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 // Add services
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -17,6 +26,9 @@ builder.Services.AddMemoryCache();
 builder.Services.AddSingleton<IImageStorage, ImageStorage>();
 
 var app = builder.Build();
+
+// Enable CORS middleware
+app.UseCors("AngularDev");
 
 // Configure middleware
 app.UseSwagger();
