@@ -68,7 +68,7 @@ export class ImageDisplayComponent implements OnInit, OnDestroy {
             this.countdown = environment.countdownDuration;
           },
           error: (err) => {
-            this.error = 'Failed to load data'; // Set error message
+            this.error = 'Failed to load data, please refresh the page or hit F5'; // Set error message
             this.isRefreshing = false;
           },
         })
