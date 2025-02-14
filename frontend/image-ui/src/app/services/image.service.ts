@@ -1,16 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, interval, switchMap } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService {
 
-  private apiUrl = '/api/images';
+  private apiUrl : string = environment.apiUrl;
   constructor(private http: HttpClient) {}
 
   getImageData(): Observable<ImageResponse> {
+    console.log("apiUrl", this.apiUrl);
     return this.http.get<ImageResponse>(this.apiUrl);
   }
 
@@ -20,6 +22,7 @@ export class ImageService {
     );
   }
 }
+
 export interface ImageEvent {
   imageUrl: string;
   description: string;

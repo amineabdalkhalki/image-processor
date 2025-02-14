@@ -12,4 +12,42 @@ mat-card {
     padding: 1rem 0;
     text-align: center;
   }
+
+  .countdown {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &-number {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: bold;
+      color: #3f51b5;
+    }
+
+    &:hover {
+     transform: scale(1.1);
+     cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+
+  }
+
+  mat-progress-spinner {
+    circle {
+      stroke: #3f51b5 !important;
+    }
+  }
+
+  mat-spinner {
+    margin: 20px auto;
+  }
 }
