@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ImageProcessorApi.Models;
+namespace ImageProcessorApi.DTO;
 
-public record ImageEvent
+public record ImageRequest
 {
     [Required(ErrorMessage = "ImageUrl is required.")]
     [Url(ErrorMessage = "ImageUrl must be a valid URL.")]
@@ -11,6 +11,4 @@ public record ImageEvent
     [Required(ErrorMessage = "Description is required.")]
     [StringLength(500, ErrorMessage = "Description cannot exceed 500 characters.")]
     public string Description { get; set; } = string.Empty;
-
-    public DateTime ReceivedAt { get; set; } = DateTime.UtcNow;
 }
