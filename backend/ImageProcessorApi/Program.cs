@@ -12,7 +12,8 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Image API", Version = "v1" });
 });
 
-// Register ImageStorage as a singleton
+// Register MemoryCache and ImageStorage
+builder.Services.AddMemoryCache();
 builder.Services.AddSingleton<IImageStorage, ImageStorage>();
 
 var app = builder.Build();

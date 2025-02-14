@@ -1,38 +1,59 @@
-﻿using System.Collections.Concurrent;
-using ImageProcessorApi.Services;
-namespace ImageProcessorApi.Models;
+﻿using ImageProcessorApi.Models;
+using Microsoft.Extensions.Caching.Memory;
 
+namespace ImageProcessorApi.Services;
 
 public class ImageStorage : IImageStorage
 {
-    private readonly ConcurrentBag<DateTime> _eventTimestamps = new();
-    private ImageEvent? _latestImage;
+    private const string LatestImageKey = "LatestImage";
+    private const string EventTimestampsKey = "EventTimestamps";
 
-    public ImageEvent? LatestImage => _latestImage;
+    private readonly IMemoryCache _cache;
 
-    public int LastHourCount => _eventTimestamps
-        .Count(t => t > DateTime.UtcNow.AddHours(-1));
+    private const int CacheExpirationHours = 1;
+
+    public ImageStorage(IMemoryCache cache)
+    {
+        _cache = cache;
+
+        // Set cache options
+        var cacheOptions = new MemoryCacheEntryOptions
+        {
+            SlidingExpiration = TimeSpan.FromHours(CacheExpirationHours) // Automatically remove items after 1 hour of inactivity
+        };
+
+        // Initialize cache with default values
+        _cache.Set(LatestImageKey, string.Empty, cacheOptions);
+        _cache.Set(EventTimestampsKey, new List<DateTime>(), cacheOptions);
+    }
+
+    public ImageEvent? LatestImage
+    {
+        get => _cache.Get<ImageEvent?>(LatestImageKey);
+    }
+
+    public int LastHourCount
+    {
+        get
+        {
+            var timestamps = _cache.Get<List<DateTime>>(EventTimestampsKey) ?? new List<DateTime>();
+            return timestamps.Count(t => t > DateTime.UtcNow.AddHours(-1));
+        }
+    }
 
     public void Update(ImageEvent imageEvent)
     {
-        _latestImage = imageEvent;
-        _eventTimestamps.Add(DateTime.UtcNow);
-        DeleteOldEvents();
-    }
+        // Update latest image
+        _cache.Set(LatestImageKey, imageEvent);
 
-    private void DeleteOldEvents()
-    {
-        var cutoff = DateTime.UtcNow.AddHours(-1);
-        while (_eventTimestamps.TryPeek(out var timestamp))
-        {
-            if (timestamp < cutoff)
-            {
-                _eventTimestamps.TryTake(out _);
-            }
-            else
-            {
-                break;
-            }
-        }
+        // Update event timestamps
+        var timestamps = _cache.Get<List<DateTime>>(EventTimestampsKey) ?? new List<DateTime>();
+        timestamps.Add(DateTime.UtcNow);
+
+        // Prune old events
+        timestamps = timestamps.Where(t => t > DateTime.UtcNow.AddHours(-1)).ToList();
+
+        // Store updated timestamps
+        _cache.Set(EventTimestampsKey, timestamps);
     }
 }
