@@ -1,4 +1,3 @@
-using ImageProcessorApi.Models;
 using ImageProcessorApi.Services;
 using Microsoft.OpenApi.Models;
 
@@ -16,10 +15,6 @@ builder.Services.AddCors(options => {
 // Add services
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Image API", Version = "v1" });
-});
 
 // Register MemoryCache and ImageStorage
 builder.Services.AddMemoryCache();

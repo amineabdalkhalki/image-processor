@@ -1,7 +1,8 @@
-﻿using ImageProcessorApi.Models;
+﻿using ImageEventApi.Models;
+using ImageEventApi.Services;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace ImageEventApi.Services;
+namespace ImageProcessorApi.Services;
 
 public class ImageStorage : IImageStorage
 {

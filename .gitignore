@@ -9,3 +9,8 @@
 /backend/ImageProcessorApi/ImageProcessorApi.csproj.user
 /backend/ImageProcessorApi/.vs/ProjectEvaluation
 frontend/image-ui/.editorconfig
+/backend/ImageEventApi/bin
+/backend/ImageEventApi/obj
+/backend/ImageEventApi.Tests/bin
+/backend/ImageEventApi.Tests/obj
+/backend/ImageProcessorApi/bin/Release/net8.0

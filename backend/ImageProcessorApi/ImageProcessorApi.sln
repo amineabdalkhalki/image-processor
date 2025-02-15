@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageProcessorApi", "ImageProcessorApi.csproj", "{05D4CB70-8D29-4660-8F4B-69042813438A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageEventApi", "..\ImageEventApi\ImageEventApi.csproj", "{ED871582-814E-4C45-87B4-3559A64A4405}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageEventApi.Tests", "..\ImageEventApi.Tests\ImageEventApi.Tests.csproj", "{C09EDB3D-D42B-4852-9730-63182FB99EC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{05D4CB70-8D29-4660-8F4B-69042813438A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05D4CB70-8D29-4660-8F4B-69042813438A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05D4CB70-8D29-4660-8F4B-69042813438A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05D4CB70-8D29-4660-8F4B-69042813438A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED871582-814E-4C45-87B4-3559A64A4405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED871582-814E-4C45-87B4-3559A64A4405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED871582-814E-4C45-87B4-3559A64A4405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED871582-814E-4C45-87B4-3559A64A4405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C09EDB3D-D42B-4852-9730-63182FB99EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C09EDB3D-D42B-4852-9730-63182FB99EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C09EDB3D-D42B-4852-9730-63182FB99EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C09EDB3D-D42B-4852-9730-63182FB99EC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
