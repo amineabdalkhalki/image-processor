@@ -1,35 +1,36 @@
 <mat-card>
   @if (imageData) {
-    <div class="countdown" (click)="manualRefresh()">
-      <mat-progress-spinner
-        [value]="((countdownDuration - countdown) / countdownDuration) * 100"
-        diameter="40"
-        mode="determinate">
-      </mat-progress-spinner>
-      <span class="countdown-number">{{ countdown }}</span>
-    </div>
+  <div class="countdown" (click)="manualRefresh()">
+    <mat-progress-spinner
+      [value]="((countdownDuration - countdown) / countdownDuration) * 100"
+      diameter="40"
+      mode="determinate"
+    >
+    </mat-progress-spinner>
+    <span class="countdown-number">{{ countdown }}</span>
+  </div>
 
-      @if (imageData.image && imageData.lastHourCount > 0) {
-      <img mat-card-image [src]="imageData.image.imageUrl" alt="Latest image">
-      <mat-card-content>
-        <p>{{ imageData.image.description }}</p>
-        <p>Received at: {{ imageData.image.receivedAt | date:'medium' }}</p>
-        <p>Events in last hour: {{ imageData.lastHourCount }}</p>
-      </mat-card-content>
+  @if (imageData.image && imageData.lastHourCount > 0) {
+  <img mat-card-image [src]="imageData.image.imageUrl" alt="Latest image" />
+  <mat-card-content>
+    <p>{{ imageData.image.description }}</p>
+    <p>Received at: {{ imageData.image.receivedAt | date : "medium" }}</p>
+    <p>Events in last hour: {{ imageData.lastHourCount }}</p>
+  </mat-card-content>
+  } @else {
+  <mat-card-content>
+    <p>No image available</p>
+  </mat-card-content>
+  } } @else {
+  <mat-card-content>
+    @if (error) {
+    <div class="error-message">
+      <p>⚠️ Error loading image data. Please try again.</p>
+      <a href="#" (click)="manualRefresh()">Try again 🔁 ?</a>
+    </div>
+    } @else {
+    <mat-spinner diameter="40"></mat-spinner>
     }
-    @else {
-      <mat-card-content>
-        <p>No image available</p>
-      </mat-card-content>
-    }
-  }
-  @else {
-    <mat-card-content>
-      @if (error) {
-        <p class="error-message">⚠️ Error loading image data. Please try again.</p>
-      } @else {
-        <mat-spinner diameter="40"></mat-spinner>
-      }
-    </mat-card-content>
+  </mat-card-content>
   }
 </mat-card>

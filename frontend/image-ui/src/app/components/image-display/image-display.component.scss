@@ -13,6 +13,14 @@ mat-card {
     text-align: center;
   }
 
+  a {
+    text-decoration: none;
+    color: #3f51b5;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .countdown {
     position: absolute;
     top: 10px;
