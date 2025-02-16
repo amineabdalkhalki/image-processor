@@ -16,3 +16,7 @@ frontend/image-ui/.editorconfig
 /backend/ImageProcessorApi/bin/Release/net8.0
 /backend/.vs/ImageProcessorApi
 /backend/ImageEventApi/.vs
+/backend/.vs/ProjectEvaluation
+/backend/ImageEvent.Application/obj
+/backend/ImageEvent.Domain/obj
+/backend/ImageEvent.Infrastructure/obj

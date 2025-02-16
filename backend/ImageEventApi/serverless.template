@@ -43,7 +43,7 @@
     "KinesisEventConsumerFunction": {
       "Type": "AWS::Serverless::Function",
       "Properties": {
-        "Handler": "ImageEventApi::ImageEventApi.KinesisEventConsumer::FunctionHandlerAsync",
+        "Handler": "ImageEventApi::ImageEventApi.Consumers.KinesisEventConsumer::FunctionHandlerAsync",
         "Runtime": "dotnet8",
         "CodeUri": "",
         "MemorySize": 512,

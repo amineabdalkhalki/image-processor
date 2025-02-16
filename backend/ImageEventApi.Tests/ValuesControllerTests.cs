@@ -10,8 +10,6 @@ namespace ImageEventApi.Tests;
 
 public class ValuesControllerTests
 {
-
-
     [Fact]
     public async Task TestGet()
     {
@@ -30,6 +28,4 @@ public class ValuesControllerTests
         Assert.True(response.MultiValueHeaders.ContainsKey("Content-Type"));
         Assert.Equal("application/json; charset=utf-8", response.MultiValueHeaders["Content-Type"][0]);
     }
-
-
 }

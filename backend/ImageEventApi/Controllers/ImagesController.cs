@@ -11,13 +11,9 @@ namespace ImageEventApi.Controllers
     public class ImagesController : ControllerBase
     {
         private readonly IImageStorage _imageStorage;
-        private readonly ImageEventProcessor _processor;
-
         public ImagesController(IImageStorage imageStorage)
         {
             _imageStorage = imageStorage;
-            _processor = new ImageEventProcessor(imageStorage);
-
         }
 
         [HttpPost]
