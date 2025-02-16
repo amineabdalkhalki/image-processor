@@ -14,7 +14,7 @@ The Image Processor project is a serverless application deployed on AWS, consist
 
 ## DEMO
 ### Click on the image for HD demo video hosted on Youtube
-[![Click here](media/thumbnail.jpg)](https://www.youtube.com/watch?v=Yo0Yy9Bu-9E)
+[![Click here](media/demo.gif)](https://www.youtube.com/watch?v=Yo0Yy9Bu-9E){:target="_blank"}
 
 
 ## Setup & Deployment
