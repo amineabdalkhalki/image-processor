@@ -1,0 +1,17 @@
+
+{
+    "Information" : [
+        "This file provides default values for the deployment wizard inside Visual Studio and the AWS Lambda commands added to the .NET Core CLI.",
+        "To learn more about the Lambda commands with the .NET Core CLI execute the following command at the command line in the project root directory.",
+        "dotnet lambda help",
+        "All the command line options for the Lambda command can be specified in this file."
+    ],
+    "profile"     : "visualstudio",
+    "region"      : "eu-west-3",
+    "configuration" : "Release",
+    "s3-prefix"     : "ImageEventApi/",
+    "template"      : "serverless.template",
+    "template-parameters" : "\"KinesisStreamArn\"=\"arn:aws:kinesis:eu-west-3:746669230164:stream/kinesis-ds-aleo\"",
+    "s3-bucket"           : "amzn-s3-backend",
+    "stack-name"          : "image-event-stack"
+}
