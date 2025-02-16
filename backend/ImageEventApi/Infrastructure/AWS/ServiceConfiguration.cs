@@ -1,6 +1,6 @@
 ﻿using ImageEventApi;
-using ImageEventApi.Services;
-using ImageProcessorApi.Services;
+using ImageEventApi.Core.Application.Services;
+using ImageEventApi.Core.Domain.Interfaces;
 
 public static class ServiceConfiguration
 {

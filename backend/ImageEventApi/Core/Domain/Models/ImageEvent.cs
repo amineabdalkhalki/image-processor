@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ImageEventApi.Models
+namespace ImageEventApi.Core.Domain.Models
 {
     public record ImageEvent
     {

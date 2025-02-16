@@ -1,5 +1,5 @@
-﻿using ImageEventApi.Models;
-using ImageProcessorApi.Services;
+﻿using ImageEventApi.Core.Application.Services;
+using ImageEventApi.Core.Domain.Models;
 using Xunit;
 
 namespace ImageProcessorApi.Tests.Services

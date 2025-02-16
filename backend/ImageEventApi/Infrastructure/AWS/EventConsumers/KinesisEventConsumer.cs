@@ -2,11 +2,11 @@
 using System.Text.Json;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.KinesisEvents;
-using ImageEventApi.Models;
+using ImageEventApi.Core.Domain.Models;
 
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
 
-namespace ImageEventApi.Consumers
+namespace ImageEventApi.Infrastructure.AWS.EventConsumers
 {
     public class KinesisEventConsumer
     {

@@ -1,7 +1,7 @@
-﻿using ImageEventApi.Services;
-using ImageProcessorApi.Services;
+﻿using ImageEventApi.Core.Application.Services;
+using ImageEventApi.Core.Domain.Interfaces;
 
-namespace ImageEventApi
+namespace ImageEventApi.Infrastructure.AWS.Lambda
 {
     public class LambdaDIContainer
     {

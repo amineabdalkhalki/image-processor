@@ -1,6 +1,6 @@
 using Amazon.Lambda.AspNetCoreServer;
 
-namespace ImageEventApi
+namespace ImageEventApi.Infrastructure.AWS.Lambda
 {
     public class LambdaEntryPoint : APIGatewayProxyFunction
     {

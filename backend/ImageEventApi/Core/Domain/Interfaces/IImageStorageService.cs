@@ -1,5 +1,6 @@
-﻿using ImageEventApi.Models;
-namespace ImageEventApi.Services;
+﻿using ImageEventApi.Core.Domain.Models;
+
+namespace ImageEventApi.Core.Domain.Interfaces;
 
 public interface IImageStorageService
 {

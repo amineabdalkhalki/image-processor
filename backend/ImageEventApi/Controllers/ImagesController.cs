@@ -1,6 +1,6 @@
-using ImageEventApi.DTO;
-using ImageEventApi.Models;
-using ImageEventApi.Services;
+using ImageEventApi.Core.Application.DTO;
+using ImageEventApi.Core.Domain.Interfaces;
+using ImageEventApi.Core.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]

@@ -13,7 +13,7 @@
     "AspNetCoreFunction": {
       "Type": "AWS::Serverless::Function",
       "Properties": {
-        "Handler": "ImageEventApi::ImageEventApi.LambdaEntryPoint::FunctionHandlerAsync",
+        "Handler": "ImageEventApi::ImageEventApi.Infrastructure.AWS.Lambda.LambdaEntryPoint::FunctionHandlerAsync",
         "Runtime": "dotnet8",
         "CodeUri": "",
         "MemorySize": 512,
@@ -43,7 +43,7 @@
     "KinesisEventConsumerFunction": {
       "Type": "AWS::Serverless::Function",
       "Properties": {
-        "Handler": "ImageEventApi::ImageEventApi.Consumers.KinesisEventConsumer::FunctionHandlerAsync",
+        "Handler": "ImageEventApi::ImageEventApi.Infrastructure.AWS.EventConsumers.KinesisEventConsumer::FunctionHandlerAsync",
         "Runtime": "dotnet8",
         "CodeUri": "",
         "MemorySize": 512,

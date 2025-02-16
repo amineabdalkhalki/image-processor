@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ImageEventApi.DTO;
+namespace ImageEventApi.Core.Application.DTO;
 
 public record ImageRequest
 {

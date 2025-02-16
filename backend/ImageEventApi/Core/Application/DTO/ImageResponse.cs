@@ -1,6 +1,6 @@
-﻿using ImageEventApi.Models;
+﻿using ImageEventApi.Core.Domain.Models;
 
-namespace ImageEventApi.DTO
+namespace ImageEventApi.Core.Application.DTO
 {
     public record ImageResponse
     {

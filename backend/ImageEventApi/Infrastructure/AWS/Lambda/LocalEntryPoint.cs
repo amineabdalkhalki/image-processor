@@ -1,4 +1,4 @@
-namespace ImageEventApi;
+namespace ImageEventApi.Infrastructure.AWS.Lambda;
 
 /// <summary>
 /// The Main function can be used to run the ASP.NET Core application locally using the Kestrel webserver.
