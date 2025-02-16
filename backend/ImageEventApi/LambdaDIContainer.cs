@@ -11,7 +11,7 @@ namespace ImageEventApi
         {
             var services = new ServiceCollection();
             services.AddMemoryCache(); // Register memory cache as a singleton
-            services.AddSingleton<IImageStorage, ImageStorage>(); // Your storage service using the memory cache
+            services.AddSingleton<IImageStorageService, ImageStorageService>(); // Your storage service using the memory cache
             ServiceProvider = services.BuildServiceProvider();
         }
     }

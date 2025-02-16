@@ -1,7 +1,7 @@
 ﻿using ImageEventApi.Models;
 namespace ImageEventApi.Services;
 
-public interface IImageStorage
+public interface IImageStorageService
 {
     ImageEvent? LatestImage { get; }
     int LastHourCount { get; }

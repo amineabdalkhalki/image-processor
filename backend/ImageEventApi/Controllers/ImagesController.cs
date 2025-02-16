@@ -1,58 +1,58 @@
-using Microsoft.AspNetCore.Mvc;
+using ImageEventApi.DTO;
 using ImageEventApi.Models;
 using ImageEventApi.Services;
-using ImageEventApi.DTO;
+using Microsoft.AspNetCore.Mvc;
 
-namespace ImageEventApi.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class ImagesController : ControllerBase
 {
+    private readonly IImageStorageService _imageStorage;
 
-    [ApiController]
-    [Route("api/[controller]")]
-    public class ImagesController : ControllerBase
+    public ImagesController(IImageStorageService imageStorage)
     {
-        private readonly IImageStorage _imageStorage;
-        public ImagesController(IImageStorage imageStorage)
+        _imageStorage = imageStorage;
+    }
+
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public IActionResult PostImage([FromBody] ImageRequest request)
+    {
+        if (!ModelState.IsValid)
         {
-            _imageStorage = imageStorage;
+            return BadRequest(ModelState);
         }
 
-        [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult PostImage([FromBody] ImageRequest request)
+        var imageEvent = Map(request);
+        _imageStorage.Update(imageEvent);
+
+        return Ok();
+    }
+
+    [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public IActionResult GetImage()
+    {
+        var latestImage = _imageStorage.LatestImage;
+        var lastHourCount = _imageStorage.LastHourCount;
+
+        var response = new ImageResponse
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            Image = latestImage,
+            LastHourCount = lastHourCount
+        };
 
-            //map to ImageEvent
-            ImageEvent imageEvent = Map(request);
+        return Ok(response);
+    }
 
-
-            _imageStorage.Update(imageEvent);
-            return Ok();
-        }
-
-        [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public IActionResult GetImage()
+    private static ImageEvent Map(ImageRequest request)
+    {
+        return new ImageEvent
         {
-            return Ok(new
-            {
-                Image = _imageStorage.LatestImage,
-                LastHourCount = _imageStorage.LastHourCount
-            });
-        }
-
-        private static ImageEvent Map(ImageRequest request)
-        {
-            return new ImageEvent()
-            {
-                Description = request.Description,
-                ImageUrl = request.ImageUrl,
-                ReceivedAt = DateTime.UtcNow
-            };
-        }
+            ImageUrl = request.ImageUrl,
+            Description = request.Description,
+            ReceivedAt = DateTime.UtcNow
+        };
     }
 }

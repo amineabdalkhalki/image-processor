@@ -8,7 +8,7 @@ public static class ServiceConfiguration
     {
         // Add in-memory cache and storage service
         services.AddMemoryCache();
-        services.AddSingleton<IImageStorage, ImageStorage>();
+        services.AddSingleton<IImageStorageService, ImageStorageService>();
     }
 
     public static void AddCustomCors(this IServiceCollection services, bool isDevelopment)
