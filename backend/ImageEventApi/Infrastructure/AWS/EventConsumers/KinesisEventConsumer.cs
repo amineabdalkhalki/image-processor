@@ -14,7 +14,7 @@ namespace ImageEventApi.Infrastructure.AWS.EventConsumers
         private readonly string _apiUrl;
 
         /* This implementation just to satisfy the requirements, i know it's not the best
-         I have tried first with to Inject the service or even an Even Producer
+         I have tried first to Inject the service or even an Event Producer
          But once i deploy to AWS i didn't had a 'warm' instance and the consumer had
          Different instance of the Service (checked the Hashcode they were different in the CloudWatch logs)
          I tried to use Redis or DynamoDb but they weren't included in free tier :) */
@@ -36,6 +36,11 @@ namespace ImageEventApi.Infrastructure.AWS.EventConsumers
                 // Fallback if not configured.
                 _apiUrl = "http://localhost:5000/api/images";
             }
+        }
+
+        public KinesisEventConsumer(HttpClient httpClient = null)
+        {
+            _httpClient = httpClient ?? new HttpClient();
         }
 
         public async Task FunctionHandlerAsync(KinesisEvent kinesisEvent, ILambdaContext context)
