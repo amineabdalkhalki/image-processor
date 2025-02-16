@@ -10,8 +10,7 @@ The Image Processor project is a serverless application deployed on AWS, consist
 
 ## URLs
 - **Frontend:** [Image Processor UI](http://amzn-s3-frontend.s3-website.eu-west-3.amazonaws.com/)
-- **API Swagger UI:** [AWS Lambda API Documentation](https://7nz6jxmvf4.execute-api.eu-west-3.amazonaws.com/Prod/swagger/index.html)
-- **GitHub Repository:** [Source Code](https://github.com/amineabdalkhalki/image-processor)
+- **API Swagger UI (opened in prod for exam purpose):** [AWS Lambda API Documentation](https://7nz6jxmvf4.execute-api.eu-west-3.amazonaws.com/Prod/swagger/index.html)
 
 ## Setup & Deployment
 ### Backend (.NET 8 Lambda API)
