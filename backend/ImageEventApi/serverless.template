@@ -1,8 +1,13 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Transform": "AWS::Serverless-2016-10-31",
-  "Description": "An AWS Serverless Application that uses the ASP.NET Core framework running in Amazon Lambda.",
-  "Parameters": {},
+  "Description": "An AWS Serverless Application that uses the ASP.NET Core framework running in Amazon Lambda. This template now includes a Kinesis consumer function.",
+  "Parameters": {
+    "KinesisStreamArn": {
+      "Type": "String",
+      "Description": "arn:aws:kinesis:eu-west-3:746669230164:stream/kinesis-ds-aleo"
+    }
+  },
   "Conditions": {},
   "Resources": {
     "AspNetCoreFunction": {
@@ -30,6 +35,32 @@
             "Properties": {
               "Path": "/",
               "Method": "ANY"
+            }
+          }
+        }
+      }
+    },
+    "KinesisEventConsumerFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "ImageEventApi::ImageEventApi.KinesisEventConsumer::FunctionHandlerAsync",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [
+          "AWSLambda_FullAccess"
+        ],
+        "Events": {
+          "KinesisEvent": {
+            "Type": "Kinesis",
+            "Properties": {
+              "Stream": {
+                "Ref": "KinesisStreamArn"
+              },
+              "StartingPosition": "TRIM_HORIZON",
+              "BatchSize": 100
             }
           }
         }

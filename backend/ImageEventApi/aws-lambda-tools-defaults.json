@@ -11,7 +11,7 @@
     "configuration" : "Release",
     "s3-prefix"     : "ImageEventApi/",
     "template"      : "serverless.template",
-    "template-parameters" : "",
+    "template-parameters" : "\"KinesisStreamArn\"=\"arn:aws:kinesis:eu-west-3:746669230164:stream/kinesis-ds-aleo\"",
     "s3-bucket"           : "amzn-s3-backend",
     "stack-name"          : "image-event-stack"
 }
